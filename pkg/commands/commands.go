@@ -62,6 +62,8 @@ type DockerCommand interface {
 	// True if need add ARGs and EVNs to composite cache string with resolved command
 	// need only for RUN instruction
 	IsArgsEnvsRequiredInCache() bool
+
+	IsConsiderExcludedFilesInCache() bool
 }
 
 func GetCommand(cmd instructions.Command, fileContext util.FileContext, useNewRun bool, cacheCopy bool, cacheRun bool) (DockerCommand, error) {
